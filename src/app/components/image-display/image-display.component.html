@@ -1,0 +1,8 @@
+<div class="imgContainer">
+    <p *ngIf="failedToGetPhoto&&!isLoading">Sorry, I haven't found a picture for this location</p>
+    <p *ngIf="!imgSrc&&!isLoading&&!failedToGetPhoto">Satellite photo will be displayed here</p>
+    <div class="loading" *ngIf="isLoading||isImgLoading">
+        <mat-spinner></mat-spinner>
+    </div>
+    <img *ngIf="imgSrc&&!failedToGetPhoto" [src]="imgSrc" (load)="imageLoad($event)">
+</div>
